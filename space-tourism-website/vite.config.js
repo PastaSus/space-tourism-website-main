@@ -3,6 +3,7 @@ import tailwindcss from "@tailwindcss/vite";
 import { resolve } from "path";
 
 export default defineConfig({
+  base: "./", // keeps assets relative while allowing root-based navigation
   plugins: [tailwindcss()],
   root: ".", // still fine
   build: {
