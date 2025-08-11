@@ -1,0 +1,338 @@
+@import "tailwindcss";
+
+@layer base {
+  /* Box sizing rules */
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  /* Prevent font size inflation */
+  html {
+    -moz-text-size-adjust: none;
+    -webkit-text-size-adjust: none;
+    text-size-adjust: none;
+  }
+
+  /* Remove default margin in favour of better control in authored CSS */
+  body,
+  h1,
+  h2,
+  h3,
+  h4,
+  p,
+  figure,
+  blockquote,
+  dl,
+  dd {
+    margin-block-end: 0;
+  }
+
+  /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+  ul[role="list"],
+  ol[role="list"] {
+    list-style: none;
+  }
+
+  /* Set core body defaults */
+  body {
+    line-height: 1.5;
+    min-height: 100vh;
+    font-family: "Barlow", sans-serif;
+    margin: 0;
+    font-size: 1.125rem;
+
+    /* letter-spacing: -0.035em; */
+    /* color: var(--Wenge-Brown); */
+  }
+
+  /* Set shorter line heights on headings and interactive elements */
+  h1,
+  h2,
+  h3,
+  h4,
+  button,
+  input,
+  label {
+    line-height: 1.1;
+  }
+
+  /* Balance text wrapping on headings */
+  h1,
+  h2,
+  h3,
+  h4 {
+    text-wrap: balance;
+  }
+
+  /* A elements that don't have a class get default styles */
+  a:not([class]) {
+    text-decoration-skip-ink: auto;
+    color: currentColor;
+  }
+
+  /* Make images easier to work with */
+  img,
+  picture {
+    max-width: 100%;
+    display: block;
+  }
+
+  /* Inherit fonts for inputs and buttons */
+  input,
+  button,
+  textarea,
+  select {
+    font-family: inherit;
+    font-size: inherit;
+  }
+
+  /* Make sure textareas without a rows attribute are not tiny */
+  textarea:not([rows]) {
+    min-height: 10em;
+  }
+
+  /* Anything that has been anchored to should have extra scroll margin */
+  :target {
+    scroll-margin-block: 5ex;
+  }
+
+  summary {
+    list-style: none;
+  }
+
+  :root {
+    /* ### Primary */
+    --Blue-900: 230, 35%, 7%;
+    --Blue-300: 231, 77%, 90%;
+
+    /* ### Neutral */
+    --White: 0 0% 100%;
+  }
+
+  /* remove animations for people who've turned them off */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  .btn {
+    @apply cursor-pointer rounded-sm;
+  }
+
+  .nav {
+  }
+
+  .nav__list {
+    padding: min(30vh, 4.7rem) 2rem;
+  }
+
+  .nav__link {
+  }
+
+  .hero__cta::before {
+    position: absolute;
+    content: "";
+    border-radius: 50%;
+    width: 320px;
+    height: 320px;
+    background-color: hsl(var(--White) / 0.1);
+    opacity: 0;
+
+    z-index: -1;
+
+    transition: opacity 0.3s ease-in-out;
+  }
+
+  .hero__cta:hover::before {
+    opacity: 1;
+  }
+
+  /* Shared styles for both pseudo-elements */
+  .nav__link::after,
+  .destination__tab::after {
+    content: "";
+    position: absolute;
+    opacity: 0;
+    background-color: hsl(var(--White));
+  }
+
+  /* nav__link specific styling */
+  .nav__link::after {
+    top: 50%;
+    right: 0;
+    width: 3px;
+    height: 70%;
+    transform: translateY(-50%);
+  }
+
+  /* destination__tab specific styling */
+  .destination__tab::after {
+    left: 0;
+    bottom: 0;
+    width: 87%;
+    height: 3px;
+    /* transform: translateY(50%); */
+  }
+
+  .nav__link.active::after,
+  .destination__tab.active::after {
+    opacity: 1;
+  }
+
+  /* Slow fade-out on unhover (interactives)*/
+  .nav__link:not(.active)::after,
+  .destination__tab:not(.active)::after {
+    transition: opacity 0.4s ease-out;
+  }
+
+  .nav__link:not(.active):hover::after,
+  .destination__tab:not(.active):hover::after {
+    opacity: 0.5;
+
+    transition: opacity 0.4s ease-in; /* Slow fade-out on unhover */
+  }
+
+  /* crew interactives */
+  .crew__dot:not(.active) {
+    opacity: 0.2;
+
+    transition: opacity 0.4s ease-out;
+  }
+
+  .crew__dot:not(.active):hover {
+    opacity: 0.5;
+
+    transition: opacity 0.4s ease-in;
+  }
+
+  /* turn this to after pseudo for performance */
+  .technology__dot {
+    transition: border-color 0.3s ease-in-out;
+    border: 1px solid hsl(var(--White) / 0.3);
+  }
+  .technology__dot:hover {
+    border-color: hsl(var(--White) / 1);
+  }
+
+  .technology__dot:hover {
+    /* border-color: hsl(var(--White));
+    opacity: 1; */
+  }
+
+  .technology__dot.active {
+    background-color: white;
+    color: hsl(var(--Blue-900));
+  }
+
+  .feature__tab {
+    @apply relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+
+      left: 0;
+
+      width: 100%;
+      height: 4px;
+      background-color: var(--Red-400);
+
+      opacity: 0;
+      transform: scaleX(0);
+      transform-origin: center;
+
+      transition:
+        transform 0.3s ease,
+        opacity 0.3s ease;
+    }
+  }
+
+  .feature__tab.active::after {
+    transform: scaleX(0.9);
+    opacity: 1;
+  }
+
+  .feature__panel.active {
+    display: block;
+  }
+
+  .overlay {
+    @apply fixed inset-0 z-[1] h-screen w-screen bg-[hsla(229,31%,21%,0.95)];
+  }
+
+  .no-scroll {
+    overflow: hidden;
+    height: 100vh; /* Optional: prevents some iOS scrolling issues */
+  }
+
+  .error-visual {
+    background: var(--Red-400);
+    padding: 2px;
+  }
+
+  /* .crew__picture {
+    background: linear-gradient(0deg, black, transparent);
+  }
+  bg-[linear-gradient(to_top,_hsl(var(--Blue-900)),_transparent)]
+  */
+  .fade-overlay::after {
+    content: "";
+    position: absolute;
+    /* inset: 0; */
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 10%;
+    background: linear-gradient(to top, hsl(var(--Blue-900)), transparent);
+    pointer-events: none;
+  }
+
+  /* tablets */
+  @media (min-width: 48em) {
+    .nav {
+      background-color: hsl(var(--White) / 0.05);
+      padding-inline-start: min(8.6vw, 5.5rem);
+      padding-inline-end: min(6vw, 4rem);
+    }
+
+    .header__container {
+    }
+  }
+
+  /* desktops  */
+  @media (min-width: 90em) {
+    .header__logo::after {
+      position: absolute;
+      content: "";
+      width: 560px;
+      height: 2px;
+      background-color: hsl(var(--White) / 0.1);
+      inset: 0;
+
+      z-index: 2;
+
+      top: 50%;
+
+      transform: translateX(20%);
+    }
+
+    /* .technology__member {
+      margin-left: min(12vw, 160px);
+    } */
+  }
+}
+
+@theme {
+  --breakpoint-xl: 90rem;
+}

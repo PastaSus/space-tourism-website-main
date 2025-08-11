@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/favicon-32x32.png"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Bellefair&display=swap"
+      rel="stylesheet"
+    />
+
+    <link href="/src/style.css" rel="stylesheet" type="text/css" />
+
+    <title>Frontend Mentor | Space tourism website</title>
+  </head>
+  <body
+    class="bg-[url('/assets/crew/background-crew-mobile.jpg')] bg-cover bg-left bg-no-repeat text-white md:bg-[url('/assets/crew/background-crew-tablet.jpg')] xl:bg-[url('/assets/crew/background-crew-desktop.jpg')]"
+  >
+    <!-- Header -->
+    <header class="header relative md:flex md:items-center xl:mt-10">
+      <div
+        class="header__container mx-auto flex max-w-84 justify-between py-6 md:mx-9 md:py-0 xl:mx-15"
+      >
+        <a
+          href="index.html"
+          class="header__logo relative max-w-10 md:max-w-12"
+          aria-label="Space Travel logo"
+        >
+          <img src="/assets/shared/logo.svg" alt="" />
+        </a>
+
+        <button
+          class="nav__open cursor-pointer md:hidden"
+          id="navToggle"
+          aria-label="Toggle navigation menu"
+          aria-controls="mobileNav"
+          aria-expanded="false"
+        >
+          <img src="/assets/shared/icon-hamburger.svg" alt="" />
+        </button>
+      </div>
+
+      <!-- Mobile Navigation Menu -->
+      <!-- keep aria-hidden? -->
+      <nav
+        class="nav nav--mobile fixed top-0 right-0 z-1 h-dvh w-[68.5dvw] translate-x-full items-baseline opacity-0 backdrop-blur-2xl transition-transform duration-700 ease-in-out md:relative md:ml-auto md:h-auto md:w-auto md:translate-0 md:opacity-100 xl:pl-34"
+        id="mobileNav"
+        aria-hidden="true"
+      >
+        <div class="mt-8 flex px-5 md:hidden">
+          <button
+            class="nav__close ml-auto cursor-pointer md:hidden"
+            aria-label="Close navigation menu"
+            aria-controls="mobileNav"
+            aria-expanded="false"
+          >
+            <img src="/assets/shared/icon-close.svg" alt="" />
+          </button>
+        </div>
+        <ul
+          class="nav__list flex flex-col gap-7 pr-0 font-[barlow_condensed,_sans-serif] tracking-widest md:flex-row md:gap-12 md:py-0 md:pl-0"
+        >
+          <li class="nav__item">
+            <a
+              href="index.html"
+              class="nav__link relative flex gap-3 uppercase md:py-8.5 md:after:top-auto md:after:bottom-0 md:after:h-[3px] md:after:w-full"
+            >
+              <span class="nav__index font-semibold" aria-hidden="true">
+                00</span
+              >
+              <span class="font-light"> Home</span></a
+            >
+          </li>
+          <li class="nav__item">
+            <a
+              href="/pages/destination-moon.html"
+              class="nav__link relative flex gap-3 uppercase md:py-8.5 md:after:top-auto md:after:bottom-0 md:after:h-[3px] md:after:w-full"
+            >
+              <span class="nav__index font-semibold" aria-hidden="true">
+                01
+              </span>
+              <span class="font-light"> Destination</span></a
+            >
+          </li>
+          <li class="nav__item">
+            <a
+              href="/pages/crew-commander.html"
+              class="nav__link active relative flex gap-3 uppercase md:py-8.5 md:after:top-auto md:after:bottom-0 md:after:h-[3px] md:after:w-full"
+              ><span class="nav__index font-semibold" aria-hidden="true">
+                02</span
+              >
+              <span class="font-light"> Crew</span></a
+            >
+          </li>
+          <li class="nav__item">
+            <a
+              href="technology-vehicle.html"
+              class="nav__link relative flex gap-3 uppercase md:py-8.5 md:after:top-auto md:after:bottom-0 md:after:h-[3px] md:after:w-full"
+              ><span class="nav__index font-semibold" aria-hidden="true">
+                03</span
+              >
+              <span class="font-light">Technology</span></a
+            >
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="destination">
+      <!-- <h2 class="sr-only">Choose Your Destination</h2> -->
+
+      <!-- Section Header -->
+
+      <!-- Content Panel -->
+      <section
+        class="crew__panel text-center"
+        role="tabpanel"
+        id="destination-panel-moon"
+        aria-labelledby="destination-tab-moon"
+      >
+        <!-- Section Header -->
+        <header
+          class="crew__header mt-6 font-[Barlow_condensed,_sans-serif] md:mx-auto md:mt-9 md:max-w-175 xl:mt-11 xl:max-w-280"
+        >
+          <h1
+            class="crew__step text-center text-base tracking-[3px] uppercase md:text-start md:text-xl xl:text-3xl"
+          >
+            <span
+              class="crew__step-index font-bold text-gray-600"
+              aria-hidden="true"
+              >02</span
+            >
+            <span class="crew__step-label ml-3">Meet your crew</span>
+          </h1>
+        </header>
+
+        <article
+          class="crew__member crew__member--active mt-14 grid [grid-template-areas:'content'_'image'] xl:mx-auto xl:max-w-280 xl:grid-cols-2 xl:gap-10 xl:text-start xl:[grid-template-areas:'content_image']"
+        >
+          <div class="xl:mt-42">
+            <header class="">
+              <p
+                class="crew__role font-[Bellefair,_sans-serif] text-gray-500 uppercase md:text-2xl xl:text-[2rem]"
+                aria-label="Crew role"
+              >
+                Flight Engineer
+              </p>
+              <h2
+                class="crew__title mt-1 font-[Bellefair,_sans-serif] text-2xl uppercase md:mt-3 md:text-[2.5rem] xl:text-[3.5rem]"
+              >
+                Anousheh Ansari
+              </h2>
+            </header>
+            <p
+              class="crew__description mx-auto mt-5 h-36 max-w-86 text-base leading-[1.8] font-light md:max-w-125 xl:mx-0 xl:max-w-133 xl:text-lg"
+            >
+              Anousheh Ansari is an Iranian American engineer and co-founder of
+              Prodea Systems. Ansari was the fourth self-funded space tourist,
+              the first self-funded woman to fly to the ISS, and the first
+              Iranian in space.
+            </p>
+
+            <!-- Navigation Tabs -->
+            <nav
+              class="crew__nav mt-10 md:mt-0 xl:mt-45"
+              aria-label="Crew member navigation"
+            >
+              <ul
+                class="crew__nav-list flex justify-center gap-4 xl:justify-start xl:gap-10"
+              >
+                <li class="crew__nav-item">
+                  <a
+                    href="crew-commander.html"
+                    class="crew__dot inline-block h-2.5 w-2.5 rounded-full bg-white xl:h-[0.94rem] xl:w-[0.94rem]"
+                    aria-label="Douglas Hurley"
+                    aria-current="page"
+                  ></a>
+                </li>
+                <li class="crew__nav-item">
+                  <a
+                    href="crew-specialist.html"
+                    class="crew__dot inline-block h-2.5 w-2.5 rounded-full bg-white xl:h-[0.94rem] xl:w-[0.94rem]"
+                    aria-label="Mark Shuttleworth"
+                  ></a>
+                </li>
+                <li class="crew__nav-item">
+                  <a
+                    href="crew-pilot.html"
+                    class="crew__dot inline-block h-2.5 w-2.5 rounded-full bg-white xl:h-[0.94rem] xl:w-[0.94rem]"
+                    aria-label="Victor Glover"
+                  ></a>
+                </li>
+                <li class="crew__nav-item">
+                  <a
+                    href="crew-engineer.html"
+                    class="crew__dot active pointer-events-none inline-block h-2.5 w-2.5 rounded-full bg-white xl:h-3.5 xl:w-[0.94rem]"
+                    aria-label="Anousheh Ansari"
+                  ></a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+          <!-- Image -->
+          <div
+            class="crew__image-container mt-8 grid overflow-y-hidden md:mt-0"
+          >
+            <picture
+              class="crew__picture fade-overlay relative justify-self-center md:translate-y-12 xl:mt-auto xl:translate-y-0"
+            >
+              <source
+                srcset="/assets/crew/image-anousheh-ansari.webp"
+                type="image/webp"
+              />
+              <img
+                src="/assets/crew/image-anousheh-ansari.png"
+                alt="Anousheh Ansari"
+                class="crew__image max-w-64 md:max-w-96 xl:max-w-135"
+              />
+            </picture>
+          </div>
+        </article>
+      </section>
+    </main>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
