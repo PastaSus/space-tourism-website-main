@@ -50,7 +50,6 @@
       </div>
 
       <!-- Mobile Navigation Menu -->
-      <!-- keep aria-hidden? -->
       <nav
         class="nav nav--mobile fixed top-0 right-0 z-1 h-dvh w-[68.5dvw] translate-x-full items-baseline opacity-0 backdrop-blur-2xl transition-transform duration-700 ease-in-out md:relative md:ml-auto md:h-auto md:w-auto md:translate-0 md:opacity-100 xl:pl-34"
         id="mobileNav"
@@ -115,42 +114,28 @@
       </nav>
     </header>
 
-    <main class="destination">
-      <!-- <h2 class="sr-only">Choose Your Destination</h2> -->
-
-      <!-- Section Header -->
-
+    <main class="crew">
       <!-- Content Panel -->
-      <section
-        class="crew__panel text-center"
-        role="tabpanel"
-        id="destination-panel-moon"
-        aria-labelledby="destination-tab-moon"
-      >
-        <!-- Section Header -->
-        <header
-          class="crew__header mt-6 font-[Barlow_condensed,_sans-serif] md:mx-auto md:mt-9 md:max-w-175 xl:mt-11 xl:max-w-280"
+      <section class="crew__panel text-center" aria-labelledby="crew-heading">
+        <h1
+          class="crew__step mt-6 text-center font-[Barlow_condensed,_sans-serif] text-base tracking-[3px] uppercase md:mx-auto md:mt-9 md:max-w-175 md:text-start md:text-xl xl:mt-11 xl:max-w-280 xl:text-3xl"
+          id="crew-heading"
         >
-          <h1
-            class="crew__step text-center text-base tracking-[3px] uppercase md:text-start md:text-xl xl:text-3xl"
+          <span
+            class="crew__step-index font-bold text-gray-600"
+            aria-hidden="true"
+            >02</span
           >
-            <span
-              class="crew__step-index font-bold text-gray-600"
-              aria-hidden="true"
-              >02</span
-            >
-            <span class="crew__step-label ml-3">Meet your crew</span>
-          </h1>
-        </header>
+          <span class="crew__step-label ml-3">Meet your crew</span>
+        </h1>
 
         <article
           class="crew__member crew__member--active mt-14 grid [grid-template-areas:'content'_'image'] xl:mx-auto xl:max-w-280 xl:grid-cols-2 xl:gap-10 xl:text-start xl:[grid-template-areas:'content_image']"
         >
           <div class="xl:mt-42">
-            <header class="">
+            <header>
               <p
                 class="crew__role font-[Bellefair,_sans-serif] text-gray-500 uppercase md:text-2xl xl:text-[2rem]"
-                aria-label="Crew role"
               >
                 Flight Engineer
               </p>

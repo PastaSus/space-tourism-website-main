@@ -50,7 +50,6 @@
       </div>
 
       <!-- Mobile Navigation Menu -->
-      <!-- keep aria-hidden? -->
       <nav
         class="nav nav--mobile fixed top-0 right-0 z-1 h-dvh w-[68.5dvw] translate-x-full items-baseline opacity-0 backdrop-blur-2xl transition-transform duration-700 ease-in-out md:relative md:ml-auto md:h-auto md:w-auto md:translate-0 md:opacity-100 xl:pl-34"
         id="mobileNav"
@@ -116,32 +115,21 @@
     </header>
 
     <main class="technology">
-      <!-- <h2 class="sr-only">Choose Your Destination</h2> -->
-
-      <!-- Section Header -->
-
-      <!-- Content Panel -->
       <section
         class="technology__panel text-center"
-        role="tabpanel"
-        id="technology-panel-moon"
-        aria-labelledby="technology-tab-moon"
-        tabindex="0"
+        aria-labelledby="technology-heading"
       >
-        <header
-          class="technology__header mt-6 font-[Barlow_condensed,_sans-serif] md:mx-auto md:mt-9 md:max-w-175 xl:mt-11 xl:max-w-280"
+        <h1
+          class="technology__step mt-6 text-center font-[Barlow_condensed,_sans-serif] text-base tracking-[3px] uppercase md:mx-auto md:mt-9 md:max-w-175 md:text-start md:text-xl xl:mt-11 xl:max-w-280 xl:text-3xl"
+          id="technology-heading"
         >
-          <h1
-            class="technology__step text-center text-base tracking-[3px] uppercase md:text-start md:text-xl xl:text-3xl"
+          <span
+            class="technology__step-index font-bold text-gray-600"
+            aria-hidden="true"
+            >03</span
           >
-            <span
-              class="technology__step-index font-bold text-gray-600"
-              aria-hidden="true"
-              >03</span
-            >
-            <span class="technology__step-label ml-3">Space launch 101</span>
-          </h1>
-        </header>
+          <span class="technology__step-label ml-3">Space launch 101</span>
+        </h1>
 
         <article
           class="technology__member crew__member--active mt-14 grid [grid-template-areas:'image'_'content'] xl:ml-40 xl:max-w-320 xl:grid-cols-[1fr_auto] xl:gap-8 xl:text-start xl:[grid-template-areas:'content_image']"
@@ -213,17 +201,17 @@
             </nav>
 
             <div>
-              <h2
+              <p
                 class="mt-8 font-[Bellefair,_sans-serif] text-gray-500 uppercase md:text-2xl xl:mt-0 xl:text-[2rem]"
               >
                 The terminology...
-              </h2>
+              </p>
 
-              <h1
+              <h2
                 class="technology__title mt-4 font-[Bellefair,_sans-serif] text-2xl uppercase md:text-[2.5rem] xl:mt-2 xl:text-[3.5rem]"
               >
                 Launch vehicle
-              </h1>
+              </h2>
 
               <p
                 class="technology__description mx-auto mt-5 h-36 max-w-86.5 text-base leading-[1.8] font-light md:mt-3 md:max-w-135 md:text-lg xl:h-40 xl:max-w-123"
