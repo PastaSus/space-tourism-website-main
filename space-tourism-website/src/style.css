@@ -141,6 +141,7 @@
     height: 320px;
     background-color: hsl(var(--White) / 0.1);
     opacity: 0;
+    pointer-events: none;
 
     z-index: -1;
 
