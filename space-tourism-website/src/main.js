@@ -34,4 +34,6 @@ function closeNav() {
 
   // For header nav
   nav.setAttribute("aria-hidden", "true");
+
+  openNavBtn.focus();
 }
