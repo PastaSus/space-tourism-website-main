@@ -1,22 +1,19 @@
 # Frontend Mentor - Space tourism website solution
 
-This is a solution to the [Space tourism website challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/space-tourism-multipage-website-gRWj1URZ3). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
+This is a solution to the [Space tourism website challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/space-tourism-multipage-website-gRWj1URZ3). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
 ## Table of contents
 
 - [Overview](#overview)
+
   - [The challenge](#the-challenge)
-  - [Screenshot](#screenshot)
   - [Links](#links)
+
 - [My process](#my-process)
   - [Built with](#built-with)
   - [What I learned](#what-i-learned)
-  - [Continued development](#continued-development)
-  - [Useful resources](#useful-resources)
 - [Author](#author)
 - [Acknowledgments](#acknowledgments)
-
-**Note: Delete this note and update the table of contents based on what sections you keep.**
 
 ## Overview
 
@@ -28,85 +25,93 @@ Users should be able to:
 - See hover states for all interactive elements on the page
 - View each page and be able to toggle between the tabs to see new information
 
-### Screenshot
-
-![](./screenshot.jpg)
-
-Add a screenshot of your solution. The easiest way to do this is to use Firefox to view your project, right-click the page and select "Take a Screenshot". You can choose either a full-height screenshot or a cropped one based on how long the page is. If it's very long, it might be best to crop it.
-
-Alternatively, you can use a tool like [FireShot](https://getfireshot.com/) to take the screenshot. FireShot has a free option, so you don't need to purchase it. 
-
-Then crop/optimize/edit your image however you like, add it to your project, and update the file path in the image above.
-
-**Note: Delete this note and the paragraphs above when you add your screenshot. If you prefer not to add a screenshot, feel free to remove this entire section.**
-
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [Add solution URL here](https://github.com/PastaSus/space-tourism-website-main)
+- Live Site URL: [Add live site URL here](https://space-tourism-website-main-ac.vercel.app/)
 
 ## My process
 
 ### Built with
 
 - Semantic HTML5 markup
+- ARIA/Accessibility
 - CSS custom properties
 - Flexbox
 - CSS Grid
+- vanilla JS
+- Tailwind CSS
+- Vite
+- Resposively
 - Mobile-first workflow
-- [React](https://reactjs.org/) - JS library
-- [Next.js](https://nextjs.org/) - React framework
-- [Styled Components](https://styled-components.com/) - For styles
-
-**Note: These are just examples. Delete this note and replace the list above with your own choices**
 
 ### What I learned
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
+This was a nice project to get used to tailwinds utility classes and apply the accessibility i've learned recently
 
 To see how you can add code snippets, see below:
 
 ```html
-<h1>Some HTML code I'm proud of</h1>
+<nav
+  class="nav nav--mobile fixed top-0 right-0 z-1 h-dvh w-[68.5dvw] translate-x-full items-baseline opacity-0 backdrop-blur-2xl transition-transform duration-700 ease-in-out md:relative md:ml-auto md:h-auto md:w-auto md:translate-0 md:opacity-100 xl:pl-34"
+  id="mobileNav"
+  aria-hidden="true"
+>
+  <div class="mt-8 flex px-5 md:hidden">
+    <button
+      class="nav__close ml-auto cursor-pointer md:hidden"
+      aria-label="Close navigation menu"
+      aria-controls="mobileNav"
+      aria-expanded="false"
+    >
+      <img src="/assets/shared/icon-close.svg" alt="" />
+    </button>
+  </div>
+  <ul
+    class="nav__list flex flex-col gap-7 pr-0 font-[barlow_condensed,_sans-serif] tracking-widest md:flex-row md:gap-12 md:py-0 md:pl-0"
+  >
+    <li class="nav__item">
+      <a
+        href="/index.html"
+        class="nav__link relative flex gap-3 uppercase md:py-8.5 md:after:top-auto md:after:bottom-0 md:after:h-[3px] md:after:w-full"
+      >
+        <span class="nav__index font-semibold" aria-hidden="true"> 00</span>
+        <span class="font-light"> Home</span></a
+      >
+    </li>
+    <li class="nav__item">
+      <a
+        href="/pages/destination-moon.html"
+        class="nav__link relative flex gap-3 uppercase md:py-8.5 md:after:top-auto md:after:bottom-0 md:after:h-[3px] md:after:w-full"
+      >
+        <span class="nav__index font-semibold" aria-hidden="true"> 01 </span>
+        <span class="font-light"> Destination</span></a
+      >
+    </li>
+    <li class="nav__item">
+      <a
+        href="/pages/crew-commander.html"
+        class="nav__link active relative flex gap-3 uppercase md:py-8.5 md:after:top-auto md:after:bottom-0 md:after:h-[3px] md:after:w-full"
+        ><span class="nav__index font-semibold" aria-hidden="true"> 02</span>
+        <span class="font-light"> Crew</span></a
+      >
+    </li>
+    <li class="nav__item">
+      <a
+        href="technology-vehicle.html"
+        class="nav__link relative flex gap-3 uppercase md:py-8.5 md:after:top-auto md:after:bottom-0 md:after:h-[3px] md:after:w-full"
+        ><span class="nav__index font-semibold" aria-hidden="true"> 03</span>
+        <span class="font-light">Technology</span></a
+      >
+    </li>
+  </ul>
+</nav>
 ```
-```css
-.proud-of-this-css {
-  color: papayawhip;
-}
-```
-```js
-const proudOfThisFunc = () => {
-  console.log('🎉')
-}
-```
-
-If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
-
-**Note: Delete this note and the content within this section and replace with your own learnings.**
-
-### Continued development
-
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
-
-**Note: Delete this note and the content within this section and replace with your own plans for continued development.**
-
-### Useful resources
-
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
-
-**Note: Delete this note and replace the list above with resources that helped you during the challenge. These could come in handy for anyone viewing your solution or for yourself when you look back on this project in the future.**
 
 ## Author
 
-- Website - [Add your name here](https://www.your-site.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
-
-**Note: Delete this note and add/remove/edit lines above based on what links you'd like to share.**
+- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/PastaSus)
 
 ## Acknowledgments
 
-This is where you can give a hat tip to anyone who helped you out on this project. Perhaps you worked in a team or got some inspiration from someone else's solution. This is the perfect place to give them some credit.
-
-**Note: Delete this note and edit this section's content as necessary. If you completed this challenge by yourself, feel free to delete this section entirely.**
+Kevin powells videos are always helpful in these challenges and also the articles shared by FEM in general!
