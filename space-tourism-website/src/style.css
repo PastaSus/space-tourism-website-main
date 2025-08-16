@@ -302,6 +302,9 @@
       padding-inline-start: min(8.6vw, 5.5rem);
       padding-inline-end: min(6vw, 4rem);
     }
+    .nav--index {
+      padding-inline-start: min(13vw, 6rem);
+    }
   }
 
   /* desktops  */
