@@ -96,5 +96,3 @@ function trapFocus(container) {
 
   return () => container.removeEventListener("keydown", handleNavTrap);
 }
-
-// trapFocus(nav);

@@ -44,25 +44,38 @@ Users should be able to:
 - Vite
 - Resposively
 - Mobile-first workflow
+- NVDA screen reader(Manual Accessibility testing)
+- Axe DevTools by deque(Automated Accessibility testing)
 
 ### What I learned
 
-This was a nice project to get used to tailwinds utility classes and apply the accessibility i've learned recently
+-This was a nice project to get used to tailwinds utility classes and apply the accessibility features i've learned recently(trapping focus on modals, sidebar).
+
+-RequestAnimationFrame allowed me to still animate my side nav bar which has the hidden attr.
+
+-Adding a nice slide-in and slide-out transition to my mobile side navbar
+
+-Creating a multi-static page:
+Referencing other `.html` files to connect each other through the `<a></a>` tag
+
+-Build Process and Optimization:
+This project gave you hands-on experience with a modern build tool like Vite. You've seen how it automatically minifies your code, purges unused CSS from Tailwind, and optimizes assets for production. This is a crucial concept, as it ensures your final website is small, fast, and ready for deployment.
 
 To see how you can add code snippets, see below:
 
 ```html
+<!-- Mobile Navigation Menu -->
 <nav
-  class="nav nav--mobile fixed top-0 right-0 z-1 h-dvh w-[68.5dvw] translate-x-full items-baseline opacity-0 backdrop-blur-2xl transition-transform duration-700 ease-in-out md:relative md:ml-auto md:h-auto md:w-auto md:translate-0 md:opacity-100 xl:pl-34"
+  class="nav nav--index nav--mobile fixed top-0 right-0 z-1 h-dvh w-[68.5dvw] translate-x-full items-baseline opacity-0 backdrop-blur-2xl transition-transform duration-700 ease-in-out md:relative md:ml-auto md:h-auto md:w-auto md:translate-0 md:opacity-100 xl:pl-34"
   id="mobileNav"
-  aria-hidden="true"
+  hidden
 >
   <div class="mt-8 flex px-5 md:hidden">
     <button
       class="nav__close ml-auto cursor-pointer md:hidden"
       aria-label="Close navigation menu"
       aria-controls="mobileNav"
-      aria-expanded="false"
+      type="button"
     >
       <img src="/assets/shared/icon-close.svg" alt="" />
     </button>
@@ -72,10 +85,16 @@ To see how you can add code snippets, see below:
   >
     <li class="nav__item">
       <a
-        href="/index.html"
-        class="nav__link relative flex gap-3 uppercase md:py-8.5 md:after:top-auto md:after:bottom-0 md:after:h-[3px] md:after:w-full"
+        href="index.html"
+        class="nav__link active relative flex gap-3 uppercase md:py-8.5 md:after:top-auto md:after:bottom-0 md:after:h-[3px] md:after:w-full"
+        aria-current="page"
       >
-        <span class="nav__index font-semibold" aria-hidden="true"> 00</span>
+        <span
+          class="nav__index font-semibold md:hidden xl:block"
+          aria-hidden="true"
+        >
+          00</span
+        >
         <span class="font-light"> Home</span></a
       >
     </li>
@@ -91,14 +110,14 @@ To see how you can add code snippets, see below:
     <li class="nav__item">
       <a
         href="/pages/crew-commander.html"
-        class="nav__link active relative flex gap-3 uppercase md:py-8.5 md:after:top-auto md:after:bottom-0 md:after:h-[3px] md:after:w-full"
+        class="nav__link relative flex gap-3 uppercase md:py-8.5 md:after:top-auto md:after:bottom-0 md:after:h-[3px] md:after:w-full"
         ><span class="nav__index font-semibold" aria-hidden="true"> 02</span>
         <span class="font-light"> Crew</span></a
       >
     </li>
     <li class="nav__item">
       <a
-        href="technology-vehicle.html"
+        href="/pages/technology-vehicle.html"
         class="nav__link relative flex gap-3 uppercase md:py-8.5 md:after:top-auto md:after:bottom-0 md:after:h-[3px] md:after:w-full"
         ><span class="nav__index font-semibold" aria-hidden="true"> 03</span>
         <span class="font-light">Technology</span></a
@@ -106,6 +125,43 @@ To see how you can add code snippets, see below:
     </li>
   </ul>
 </nav>
+```
+
+```js
+function trapFocus(container) {
+  const navFocusables = container.querySelectorAll(".nav__close, .nav__link");
+
+  const firstEl = navFocusables[0];
+  const lastEl = navFocusables[navFocusables.length - 1];
+
+  function handleNavTrap(e) {
+    const isMobile = window.innerWidth < 768;
+
+    if (e.key !== "Tab") return;
+
+    // check width at the moment of keydown
+    if (!isMobile) return;
+
+    // e.shiftKey - shift + tab condition
+    if (e.shiftKey) {
+      if (document.activeElement === firstEl) {
+        e.preventDefault();
+        lastEl.focus();
+      }
+    } else {
+      if (document.activeElement === lastEl) {
+        e.preventDefault();
+        firstEl.focus();
+      }
+    }
+  }
+
+  container.addEventListener("keydown", handleNavTrap);
+
+  return () => container.removeEventListener("keydown", handleNavTrap);
+}
+
+// trapping focus for accessibility purposes
 ```
 
 ## Author
