@@ -191,7 +191,8 @@
   }
 
   .nav__link:not(.active):hover::after,
-  .destination__tab:not(.active):hover::after {
+  .destination__tab:not(.active):hover::after,
+  .destination__tab:not(.active):focus::after {
     opacity: 0.5;
 
     transition: opacity 0.4s ease-in; /* Slow fade-out on unhover */
@@ -204,7 +205,8 @@
     transition: opacity 0.4s ease-out;
   }
 
-  .crew__dot:not(.active):hover {
+  .crew__dot:not(.active):hover,
+  .crew__dot:not(.active):focus {
     opacity: 0.5;
 
     transition: opacity 0.4s ease-in;

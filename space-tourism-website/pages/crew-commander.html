@@ -20,7 +20,7 @@
 
     <link href="/src/style.css" rel="stylesheet" type="text/css" />
 
-    <title>Frontend Mentor | Space tourism website</title>
+    <title>Crew | Commander</title>
   </head>
   <body
     class="bg-[url('/assets/crew/background-crew-mobile.jpg')] bg-cover bg-left bg-no-repeat text-white md:bg-[url('/assets/crew/background-crew-tablet.jpg')] xl:bg-[url('/assets/crew/background-crew-desktop.jpg')]"
@@ -54,7 +54,7 @@
       <nav
         class="nav nav--mobile fixed top-0 right-0 z-1 h-dvh w-[68.5dvw] translate-x-full items-baseline opacity-0 backdrop-blur-2xl transition-transform duration-700 ease-in-out md:relative md:ml-auto md:h-auto md:w-auto md:translate-0 md:opacity-100 xl:pl-34"
         id="mobileNav"
-        aria-hidden="true"
+        hidden
       >
         <div class="mt-8 flex px-5 md:hidden">
           <button
@@ -62,7 +62,6 @@
             class="nav__close ml-auto cursor-pointer md:hidden"
             aria-label="Close navigation menu"
             aria-controls="mobileNav"
-            aria-expanded="false"
           >
             <img src="/assets/shared/icon-close.svg" alt="" />
           </button>
@@ -96,6 +95,7 @@
             <a
               href="/pages/crew-commander.html"
               class="nav__link active relative flex gap-3 uppercase md:py-8.5 md:after:top-auto md:after:bottom-0 md:after:h-[3px] md:after:w-full"
+              aria-current="page"
               ><span class="nav__index font-semibold" aria-hidden="true">
                 02</span
               >
