@@ -46,6 +46,7 @@ Users should be able to:
 - Mobile-first workflow
 - NVDA screen reader(Manual Accessibility testing)
 - Axe DevTools by deque(Automated Accessibility testing)
+- WebPageTest(Performance)
 
 ### What I learned
 
@@ -61,9 +62,32 @@ Referencing other `.html` files to connect each other through the `<a></a>` tag
 -Build Process and Optimization:
 This project gave you hands-on experience with a modern build tool like Vite. You've seen how it automatically minifies your code, purges unused CSS from Tailwind, and optimizes assets for production. This is a crucial concept, as it ensures your final website is small, fast, and ready for deployment.
 
+-Performance optimization
+Preloaded Google Fonts stylesheet with onload to download fonts early without blocking rendering. Performance for fonts is now excellent compared to the old setup.
+
+Added <noscript> fallback to ensure fonts load even if JavaScript is disabled.
+
+Result: Fonts are now non-render-blocking, improving First Contentful Paint (FCP) and overall page speed.
+
+The only remaining render-blocking resource is the main CSS, which is necessary for correct layout.
+
 To see how you can add code snippets, see below:
 
 ```html
+<link
+  href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Bellefair&display=swap"
+  rel="preload"
+  as="style"
+  onload="this.onload=null;this.rel='stylesheet'"
+/>
+<noscript>
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Bellefair&display=swap"
+  />
+</noscript>
+<!-- code above  -->
+
 <!-- Mobile Navigation Menu -->
 <nav
   class="nav nav--index nav--mobile fixed top-0 right-0 z-1 h-dvh w-[68.5dvw] translate-x-full items-baseline opacity-0 backdrop-blur-2xl transition-transform duration-700 ease-in-out md:relative md:ml-auto md:h-auto md:w-auto md:translate-0 md:opacity-100 xl:pl-34"
