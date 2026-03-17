@@ -44,7 +44,7 @@ Users should be able to:
 - Vite
 - Resposively
 - Mobile-first workflow
-- NVDA screen reader(Manual Accessibility testing)
+- NVDA,TalkBack(android) screen reader(Manual Accessibility testing)
 - Axe DevTools by deque(Automated Accessibility testing)
 - WebPageTest(Performance)
 
