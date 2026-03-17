@@ -63,7 +63,7 @@ function animateCloseNav() {
   }
 }
 
-// TODO: for accessibility
+// trap focus for our nav
 function trapFocus(container) {
   const navFocusables = container.querySelectorAll(".nav__close, .nav__link");
 
